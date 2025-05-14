@@ -125,6 +125,66 @@ string.digits           # '0123456789'
 | `time`    | Profiling execution time                  |
 | `numpy`   | Fast numerical operations (rare in CP)    |
 
+# 🐍 Python CP Template
+```python
+# =============================
+# 🐍 Python Competitive Template
+# =============================
+
+import sys
+import math
+import heapq
+import bisect
+from collections import deque, defaultdict, Counter
+from itertools import permutations, combinations, product
+from functools import lru_cache
+
+# ===== Fast Input =====
+input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
+
+# ===== Constants =====
+MOD = 10**9 + 7
+INF = float('inf')
+
+# ===== Helper Functions =====
+def lcm(a, b):
+    return abs(a * b) // math.gcd(a, b)
+
+def yes():
+    print("YES")
+
+def no():
+    print("NO")
+
+# ===== Fast Power (modular) =====
+def power(a, b, mod=MOD):
+    res = 1
+    a %= mod
+    while b:
+        if b & 1:
+            res = (res * a) % mod
+        a = (a * a) % mod
+        b >>= 1
+    return res
+
+# ===== Main Solver Function =====
+def solve():
+    # Example:
+    # n = int(input())
+    # arr = list(map(int, input().split()))
+    pass  # Replace with actual solution logic
+
+# ===== Main Driver Code =====
+def main():
+    T = int(input())
+    for _ in range(T):
+        solve()
+
+if __name__ == "__main__":
+    main()
+```
+
 ---
 
 ## ⚡ Tips
