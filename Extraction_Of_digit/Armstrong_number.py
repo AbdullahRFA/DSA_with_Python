@@ -1,7 +1,5 @@
 """
-
 """
-
 def count_of_digit(n):
     num = n
     cnt = 0
