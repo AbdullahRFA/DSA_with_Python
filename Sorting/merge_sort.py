@@ -10,14 +10,16 @@ def merge_array(left,right):
         else:
             result.append(right[j])
             j+=1
-    if i<n:
-        while i<n:
-            result.append(left[i])
-            i+=1
-    elif j<m:
-        while j<m:
-            result.append(right[j])
-            j+=1
+    # if i<n:
+    #     while i<n:
+    #         result.append(left[i])
+    #         i+=1
+    # elif j<m:
+    #     while j<m:
+    #         result.append(right[j])
+    #         j+=1
+    result.extend(left[i:])
+    result.extend(right[j:])
     return result
 
 def merge_sort(arr):
@@ -33,3 +35,51 @@ def merge_sort(arr):
 
 arr = list(map(int,input("Enter the array to be sorted: ").split()))
 print("Sortd Array: ",merge_sort(arr))
+
+
+"""
+
+class Solution:
+    def merge(self, arr, l, m, r):
+        # Create temp arrays
+        left = arr[l:m+1]
+        right = arr[m+1:r+1]
+
+        i = j = 0
+        k = l
+
+        # Merge temp arrays back into arr[l..r]
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k += 1
+
+        # Copy any remaining elements of left[]
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+
+        # Copy any remaining elements of right[]
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+
+    def mergeSort(self, arr, l, r):
+        if l < r:
+            m = (l + r) // 2
+            self.mergeSort(arr, l, m)
+            self.mergeSort(arr, m + 1, r)
+            self.merge(arr, l, m, r)
+arr = [4, 1, 3, 9, 7]
+sol = Solution()
+sol.mergeSort(arr, 0, len(arr) - 1)
+print("Sorted array:", arr)
+
+
+"""
