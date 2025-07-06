@@ -1,10 +1,11 @@
 def Linear_Search(arr,n):
-    res = -1
     for i in range(len(arr)):
         if n == arr[i]:
-            res = i
-            break
-    return res
+            return i
+    return -1
+
+    # if element must be present into the arr then it works otherwise it throw an error
+    # return arr.index(n)
 
 
 arr = list(map(int,input("Enter space separated integer: ").split()))
