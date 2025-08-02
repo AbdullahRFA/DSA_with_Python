@@ -18,7 +18,6 @@ Input: head = [1,2,3,4,5,6]
 Output: [4,5,6]
 Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
 """
-from typing import Optional
 
 
 # Definition for singly-linked list.
@@ -28,13 +27,22 @@ from typing import Optional
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        current = head
-        count = 0
-        while current:
-            current = current.next
-            count += 1
-        mid = count // 2
-        mid_node = head
-        for _ in range(mid):
-            mid_node = mid_node.next
-        return mid_node
+        # current = head
+        # count = 0
+        # while current :
+        #     current = current.next
+        #     count += 1
+        # mid = count//2
+        # mid_node = head
+        # for _ in range(mid):
+        #     mid_node = mid_node.next
+        # return mid_node
+
+        # Tortoise Hare mehtod
+        first = head
+        slow = head
+
+        while first is not None and first.next is not None:
+            slow = slow.next
+            first = first.next.next
+        return slow
