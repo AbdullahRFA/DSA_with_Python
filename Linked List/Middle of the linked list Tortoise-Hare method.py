@@ -39,10 +39,10 @@ class Solution:
         # return mid_node
 
         # Tortoise Hare mehtod
-        first = head
+        fast = head
         slow = head
 
-        while first is not None and first.next is not None:
+        while fast is not None and fast.next is not None:
             slow = slow.next
-            first = first.next.next
+            fast = fast.next.next
         return slow
