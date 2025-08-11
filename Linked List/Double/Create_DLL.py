@@ -72,12 +72,25 @@ class DoubleLinkList:
     def delete_head(self):
         if not self.head:
             print("DLL is empty")
+            return
         elif not self.head.next:
             self.head = None
             return
         else:
             self.head = self.head.next
-    
+            return
+    def delete_tail(self):
+        if not self.head:
+            print("DLL is empty")
+            return
+        elif not self.head.next:
+            self.delete_head()
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.prev.next = None
+        
     def delete_nth_element(self,n):
         if not self.head:
             print("DLL is empty")
@@ -119,6 +132,9 @@ dll.delete_head()
 dll.display_DLL()
 
 dll.delete_nth_element(6)
+dll.display_DLL()
+
+dll.delete_tail()
 dll.display_DLL()
 
 
