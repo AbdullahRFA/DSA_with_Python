@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, val):
         self.val = val
@@ -19,8 +18,6 @@ class DoubleLinkList:
             new_node.prev = self.current
             self.current = new_node
 
-
-
     def insert_at_head(self,val):
         new_node = Node(val)
         if not self.head:
@@ -35,9 +32,20 @@ class DoubleLinkList:
             print("DLL does not create yet")
             return
         temp = self.head
-        while temp:
+        while temp.next:
             print(temp.val,end="->")
             temp= temp.next
+        print(temp.val)
+            
+    def append(self, val):
+        new_node = Node(val)
+        if not self.head:
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next=new_node
 
 
 dll = DoubleLinkList()
@@ -47,8 +55,11 @@ dll.create_DLL(2)
 dll.create_DLL(3)
 dll.create_DLL(4)
 dll.display_DLL()
-# dll.insert_at_head(10)
-# dll.display_DLL()
+dll.insert_at_head(10)
+dll.display_DLL()
+dll.append(30)
+dll.display_DLL()
+
 
 
 
