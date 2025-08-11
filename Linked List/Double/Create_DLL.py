@@ -69,6 +69,34 @@ class DoubleLinkList:
                 temp = temp.next
             temp.next=new_node
             new_node.prev = temp
+    def delete_head(self):
+        if not self.head:
+            print("DLL is empty")
+        elif not self.head.next:
+            self.head = None
+            return
+        else:
+            self.head = self.head.next
+    
+    def delete_nth_element(self,n):
+        if not self.head:
+            print("DLL is empty")
+            return
+        if n==0:
+            self.delete_head()
+            return
+        else:
+            i = 0
+            temp = self.head
+            while temp and i<n-1:
+                i+=1
+                temp = temp.next
+            if not temp or not temp.next:
+                print("Out of index value")
+                return
+            else:
+                temp.next = temp.next.next
+        
 
 
 dll = DoubleLinkList()
@@ -83,7 +111,14 @@ dll.display_DLL()
 dll.append(30)
 dll.display_DLL()
 
-dll.insert_at_nth_index(100,7)
+dll.insert_at_nth_index(100,4)
+
+dll.display_DLL()
+
+dll.delete_head()
+dll.display_DLL()
+
+dll.delete_nth_element(6)
 dll.display_DLL()
 
 
