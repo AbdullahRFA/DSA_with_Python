@@ -26,6 +26,28 @@ class DoubleLinkList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
+    def insert_at_nth_index(self, val,n):
+        if not self.head or n == 0:
+            self.insert_at_head(val)
+            return
+        else:
+            new_node = Node(val)
+            i = 0
+            temp = self.head
+            while temp and i<n-1:
+                i+=1
+                temp = temp.next
+                
+            if not temp:
+                print("Index out of range")
+                return
+            else:
+                new_node.prev = temp
+                new_node.next = temp.next
+                if temp.next:
+                    temp.next.prev = new_node
+                temp.next = new_node
+            
 
     def display_DLL(self):
         if not self.head:
@@ -46,6 +68,7 @@ class DoubleLinkList:
             while temp.next:
                 temp = temp.next
             temp.next=new_node
+            new_node.prev = temp
 
 
 dll = DoubleLinkList()
@@ -58,6 +81,9 @@ dll.display_DLL()
 dll.insert_at_head(10)
 dll.display_DLL()
 dll.append(30)
+dll.display_DLL()
+
+dll.insert_at_nth_index(100,7)
 dll.display_DLL()
 
 
