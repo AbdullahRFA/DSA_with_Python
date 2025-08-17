@@ -43,7 +43,7 @@ class Solution:
         return count
 
 slv = Solution()
-a= 10
+a = 10
 b = 7
 
 print(slv.minBitFlips(a,b))
