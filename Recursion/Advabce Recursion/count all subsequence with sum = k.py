@@ -1,32 +1,16 @@
 nums = list(map(int, input("Enter element separate by space : ").split()))
 k = int(input("Enter the value of 'K' : "))
-result = []
 
-
-def Solution(idx, total, subset, k):
+def Subset(idx, total):
     if total == k:
-        result.append(subset.copy())
-        return
+        return 1
     elif total > k:
-        return
+        return 0
     elif idx >= len(nums):
-        return
+        return 0
+    pick = Subset(idx+1,total+nums[idx])
+    not_pick = Subset(idx+1, total)
 
-    # include nums[idx]
-    subset.append(nums[idx])
-    SUM = total + nums[idx]
-    # Solution(idx + 1, total + nums[idx], subset, k)
-    Solution(idx + 1, SUM, subset, k)
-    # subset.pop()
-    e = subset.pop()
-    SUM -= e
+    return pick+not_pick
 
-    # exclude nums[idx]
-    # Solution(idx + 1, total, subset, k)
-    Solution(idx + 1, SUM, subset, k)
-
-
-subset = []
-Solution(0, 0, subset, k)
-print(result)
-print(f"Total subsequences equals=={k} is {len(result)}")
+print(f"Total subset whose sum == K {Subset(0, 0)}")

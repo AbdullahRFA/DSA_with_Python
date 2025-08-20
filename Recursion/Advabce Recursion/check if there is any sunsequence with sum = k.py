@@ -1,11 +1,11 @@
 nums = list(map(int, input("Enter element separate by space : ").split()))
 k = int(input("Enter the value of 'K' : "))
-result = []
+# result = []
 
 
 def Solution(idx, total, subset, k):
     if total == k:
-        result.append(subset.copy())
+        # result.append(subset.copy())
         return True
     elif total > k:
         return False
