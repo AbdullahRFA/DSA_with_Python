@@ -37,3 +37,9 @@ inputValue = input("Enter the infix expression: ")
 print(inputValue)
 print(slv.infixToPrefix(inputValue))
 # (a+b)*c-d+f
+
+'''
+1. reverse infix
+2. convert infix to postfix
+3. reverse postfix to get prefix
+'''
