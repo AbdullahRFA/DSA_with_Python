@@ -35,6 +35,9 @@ def level_order_traversal(root):
         if node.right is not None:
             queue.append(node.right)
             
+            
+            
+
 if __name__ == "__main__":
     root = CreateTree(1)
     root.left = CreateTree(2)
