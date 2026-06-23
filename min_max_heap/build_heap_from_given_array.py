@@ -16,49 +16,59 @@ Time Complexity:
 '''
 
 
+
+def heapify(arr, n, i):
+    largest = i
+
+    left = 2*i + 1
+    right = 2*i + 2
+
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+
 def build_max_heap(arr):
     n = len(arr)
-    explore = (n//2 - 1)
 
-    for i in range(explore, -1, -1):
-        leftChildIdx = 2*i + 1
-        rightChildIdx = 2*i + 2
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr, n, i)
 
-        largestIdx = i
-
-        if leftChildIdx < n and arr[leftChildIdx] > arr[largestIdx]:
-            largestIdx = leftChildIdx
-
-        if rightChildIdx < n and arr[rightChildIdx] > arr[largestIdx]:
-            largestIdx = rightChildIdx
-
-        if largestIdx != i:
-            arr[i], arr[largestIdx] = arr[largestIdx], arr[i]
-            build_max_heap(arr)
     return arr
+
+
+def min_heapify(arr, n, i):
+    smallest = i
+
+    left = 2*i + 1
+    right = 2*i + 2
+
+    if left < n and arr[left] < arr[smallest]:
+        smallest = left
+
+    if right < n and arr[right] < arr[smallest]:
+        smallest = right
+
+    if smallest != i:
+        arr[i], arr[smallest] = arr[smallest], arr[i]
+        min_heapify(arr, n, smallest)
+
 
 def build_min_heap(arr):
     n = len(arr)
-    explore = (n//2 - 1)
 
-    for i in range(explore, -1, -1):
-        leftChildIdx = 2*i + 1
-        rightChildIdx = 2*i + 2
+    for i in range(n//2 - 1, -1, -1):
+        min_heapify(arr, n, i)
 
-        smallestIdx = i
-
-        if leftChildIdx < n and arr[leftChildIdx] < arr[smallestIdx]:
-            smallestIdx = leftChildIdx
-
-        if rightChildIdx < n and arr[rightChildIdx] < arr[smallestIdx]:
-            smallestIdx = rightChildIdx
-
-        if smallestIdx != i:
-            arr[i], arr[smallestIdx] = arr[smallestIdx], arr[i]
-            build_min_heap(arr)
     return arr
 
-arr = [4,12,8,9,16,1,19,21]
-print("Original Array:", arr)
-print("Max Heap:",build_max_heap(arr))
-print("Min Heap:",build_min_heap(arr))
+
+arr = [4,6,8,12,16,13,19,21]
+print(build_max_heap(arr))
+print(build_min_heap(arr))
