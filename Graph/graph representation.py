@@ -3,7 +3,6 @@ n = 5
 ages = [[2, 3], [2, 4], [3, 4], [3, 5], [4, 5]]
 
 # Matrix representation of graph
-
 matrix = [[0 for _ in range(n+1)] for _ in range(n+1)]
 print("Matrix representation:", matrix)
 
